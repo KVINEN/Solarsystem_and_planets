@@ -11,7 +11,11 @@ class Astronomy
             new Planet("Mercury"),
             new Planet("Venus"),
             new Planet("Terra"),
-            new Moon("The Moon")
+            new Moon("The Moon"),
+            new AstroidBelt("Asteroid Belt"),
+            new Astroid("Ceres"),
+            new DwarfPlanet("Pluto"),
+            new Comet("Halley")
         };
         foreach (SpaceObject obj in solarSystem)
         {

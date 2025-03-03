@@ -46,4 +46,40 @@ namespace Solarsystem_and_planets
             base.Draw();
         }
     }
+    public class AstroidBelt : SpaceObject
+    {
+        public AstroidBelt(String name) : base(name) { }
+        public override void Draw()
+        {
+            Console.Write("Astroid Belt : ");
+            base.Draw();
+        }
+    }
+    public class Astroid : SpaceObject
+    {
+        public Astroid(String name) : base(name) { }
+        public override void Draw()
+        {
+            Console.Write("Astroid : ");
+            base.Draw();
+        }
+    }
+    public class Comet : SpaceObject
+    {
+        public Comet(String name) : base(name) { }
+        public override void Draw()
+        {
+            Console.Write("Comet : ");
+            base.Draw();
+        }
+    }
+    public class  DwarfPlanet : Planet
+    {
+        public DwarfPlanet(String name) : base(name) { }
+        public override void Draw()
+        {
+            Console.Write("Dwarf Planet : ");
+            base.Draw();
+        }
+    }
 }
