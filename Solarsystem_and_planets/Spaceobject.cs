@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Solarsystem_and_planets
         }
         public virtual void Draw()
         {
-            Console.WriteLine(Name);
+            Console.WriteLine(Name + " " + ObjectRadius + " " + RotationalPeriod + " " + ObjectColor);
         }
     }
     public class Star : SpaceObject
@@ -41,7 +42,7 @@ namespace Solarsystem_and_planets
 
         public override void Draw()
         {
-            Console.Write("Planet: ");
+            Console.Write("Planet: " + OrbitPeriod + " " + OrbitRadius + " ");
             base.Draw();
         }
     }

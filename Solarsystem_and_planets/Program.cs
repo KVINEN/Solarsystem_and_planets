@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Solarsystem_and_planets;
+using System.Drawing;
 
 class Astronomy
 {
@@ -8,7 +9,7 @@ class Astronomy
         List<SpaceObject> solarSystem = new List<SpaceObject>
         {
             new Star("Sun"),
-            new Planet("Mercury"){ OrbitRadius=57910, OrbitPeriod=87.97 },
+            new Planet("Mercury"){ OrbitRadius=57910F, OrbitPeriod=87.97F, ObjectRadius=2440F , RotationalPeriod=59F , ObjectColor= Color.FromName("Blue") },
             new Planet("Venus"),
             new Planet("Terra"),
             new Moon("The Moon"),
