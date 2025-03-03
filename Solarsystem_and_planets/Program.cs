@@ -8,7 +8,7 @@ class Astronomy
         List<SpaceObject> solarSystem = new List<SpaceObject>
         {
             new Star("Sun"),
-            new Planet("Mercury"),
+            new Planet("Mercury"){ OrbitRadius=57910, OrbitPeriod=87.97 },
             new Planet("Venus"),
             new Planet("Terra"),
             new Moon("The Moon"),

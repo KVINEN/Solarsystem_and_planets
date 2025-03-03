@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Solarsystem_and_planets")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f6918fd4492ddfd25de999da16ffef9ab6a3ce6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7690f4ffa2bdaec4e121e85409ab6f509b149741")]
 [assembly: System.Reflection.AssemblyProductAttribute("Solarsystem_and_planets")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Solarsystem_and_planets")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
