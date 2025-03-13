@@ -29,6 +29,7 @@ namespace Solarsystem_and_planets
     {
         public float OrbitRadius { get; set; }
         public float OrbitPeriod { get; set; }
+        public SpaceObject Orbiting { get; set; }
 
         public CelestialBody(string name) : base(name) { }
 
@@ -62,23 +63,7 @@ namespace Solarsystem_and_planets
     }
     public class Moon : CelestialBody
     {
-        public Planet OrbitingPlanet { get; set; }
-
-        public Moon(String name, Planet orbitingPlanet) : base(name) 
-        {
-            OrbitingPlanet = orbitingPlanet;
-        }
-
-        public new (float x, float y) GetPosition(float time)
-        {
-            var (planetX, planetY) = OrbitingPlanet.GetPosition(time);
-            double angle = 2 * Math.PI * (time / OrbitPeriod);
-            float moonX = OrbitRadius * (float)Math.Cos(angle);
-            float moonY = OrbitRadius * (float)Math.Sin(angle);
-            return (planetX + moonX, planetY + moonY);
-
-        }
-
+        public Moon(String name) : base(name) {}
         public override void Draw()
         {
             Console.Write("Moon : ");
