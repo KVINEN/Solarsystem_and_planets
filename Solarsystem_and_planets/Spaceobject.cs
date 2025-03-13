@@ -21,7 +21,23 @@ namespace Solarsystem_and_planets
         }
         public virtual void Draw()
         {
-            Console.WriteLine(Name + " " + ObjectRadius + " " + RotationalPeriod + " " + ObjectColor);
+            Console.WriteLine($"{Name}: Radius={ObjectRadius}, Rotation={RotationalPeriod}, Color={ObjectColor.Name}");
+        }
+    }
+
+    public class CelestialBody : SpaceObject
+    {
+        public float OrbitRadius { get; set; }
+        public float OrbitPeriod { get; set; }
+
+        public CelestialBody(string name) : base(name) { }
+
+        public (float x, float y) GetPosition(float time)
+        {
+            double angle = 2 * Math.PI * (time / OrbitPeriod);
+            float x = OrbitRadius * (float)Math.Cos(angle);
+            float y = OrbitRadius * (float)Math.Sin(angle);
+            return (x, y);
         }
     }
     public class Star : SpaceObject
@@ -34,41 +50,54 @@ namespace Solarsystem_and_planets
             base.Draw();
         }
     }
-    public class Planet : SpaceObject
+    public class Planet : CelestialBody
     {
         public Planet(String name) : base(name) { }
-        public float OrbitRadius { get; set; }
-        public float OrbitPeriod { get; set; }
 
         public override void Draw()
         {
-            Console.Write("Planet: " + OrbitPeriod + " " + OrbitRadius + " ");
+            Console.Write("Planet: ");
             base.Draw();
         }
     }
-    public class Moon : Planet
+    public class Moon : CelestialBody
     {
-        public Moon(String name) : base(name) { }
+        public Planet OrbitingPlanet { get; set; }
+
+        public Moon(String name, Planet orbitingPlanet) : base(name) 
+        {
+            OrbitingPlanet = orbitingPlanet;
+        }
+
+        public new (float x, float y) GetPosition(float time)
+        {
+            var (planetX, planetY) = OrbitingPlanet.GetPosition(time);
+            double angle = 2 * Math.PI * (time / OrbitPeriod);
+            float moonX = OrbitRadius * (float)Math.Cos(angle);
+            float moonY = OrbitRadius * (float)Math.Sin(angle);
+            return (planetX + moonX, planetY + moonY);
+
+        }
+
         public override void Draw()
         {
             Console.Write("Moon : ");
             base.Draw();
         }
     }
-    public class AstroidBelt : SpaceObject
+    public class AsteroidBelt : SpaceObject
     {
-        public AstroidBelt(String name) : base(name) { }
+        public AsteroidBelt(String name) : base(name) { }
+
         public override void Draw()
         {
             Console.Write("Astroid Belt : ");
             base.Draw();
         }
     }
-    public class Astroid : SpaceObject
+    public class Astroid : CelestialBody
     {
         public Astroid(String name) : base(name) { }
-        public float OrbitRadius { get; set; }
-        public float OrbitPeriod { get; set; }
 
         public override void Draw()
         {
@@ -76,9 +105,10 @@ namespace Solarsystem_and_planets
             base.Draw();
         }
     }
-    public class Comet : SpaceObject
+    public class Comet : CelestialBody
     {
         public Comet(String name) : base(name) { }
+
         public override void Draw()
         {
             Console.Write("Comet : ");
@@ -88,6 +118,7 @@ namespace Solarsystem_and_planets
     public class  DwarfPlanet : Planet
     {
         public DwarfPlanet(String name) : base(name) { }
+
         public override void Draw()
         {
             Console.Write("Dwarf Planet : ");
