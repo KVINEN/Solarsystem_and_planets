@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Solarsystem_and_planets\Solarsystem_and_planets.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -30,20 +30,30 @@ namespace Solarsystem_and_planets
         public float OrbitRadius { get; set; }
         public float OrbitPeriod { get; set; }
         public SpaceObject Orbiting { get; set; }
+        private float currentAngle = 0;
 
         public CelestialBody(string name) : base(name) { }
 
         public (float x, float y) GetPosition(float time)
         {
-            double angle = 2 * Math.PI * (time / OrbitPeriod);
-            float x = OrbitRadius * (float)Math.Cos(angle);
-            float y = OrbitRadius * (float)Math.Sin(angle);
+            currentAngle += (float)(2 * Math.PI * time / OrbitPeriod);
+            float x = OrbitRadius * (float)Math.Cos(currentAngle);
+            float y = OrbitRadius * (float)Math.Sin(currentAngle);
             return (x, y);
         }
     }
     public class Star : SpaceObject
     {
-        public Star(String name) : base(name) { }
+        public Star(String name) : base(name) 
+        {
+            ObjectColor = Color.Yellow;
+            ObjectRadius = 696340F;
+        }
+
+        public (float x, float y) GetPosition()
+        {
+            return (0, 0);
+        }
 
         public override void Draw()
         {
